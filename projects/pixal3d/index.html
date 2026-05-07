@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixal3D — High-Quality 3D Generation</title>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js">
+    <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -447,6 +457,87 @@
             .results-gallery {
                 grid-template-columns: 1fr;
             }
+        }
+
+        .sv-load-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            z-index: 10;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(99, 102, 241, 0.8);
+            border: 1px solid rgba(99, 102, 241, 0.5);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sv-load-btn:hover {
+            background: rgba(99, 102, 241, 1);
+        }
+
+        .sv-load-btn.loaded {
+            background: rgba(34, 197, 94, 0.6);
+            border-color: rgba(34, 197, 94, 0.4);
+            pointer-events: none;
+        }
+
+        .sv-normal-toggle {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            background: rgba(10, 10, 15, 0.8);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .sv-normal-toggle input {
+            display: none;
+        }
+
+        .sv-normal-switch {
+            position: relative;
+            width: 28px;
+            height: 14px;
+            border-radius: 7px;
+            background: var(--border);
+            transition: background 0.2s;
+        }
+
+        .sv-normal-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+            transition: transform 0.2s;
+        }
+
+        .sv-normal-toggle input:checked + .sv-normal-switch {
+            background: var(--primary);
+        }
+
+        .sv-normal-toggle input:checked + .sv-normal-switch::after {
+            transform: translateX(14px);
+        }
+
+        .sv-normal-text {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            white-space: nowrap;
         }
 
         /* Features Grid */
@@ -1112,6 +1203,102 @@
         </div>
         <div class="results-gallery fade-in">
             <div class="results-gallery-item">
+                <div class="rg-input"><img src="results/0_img.png" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="results/0_mesh.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="results/0_mesh.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="results/1_img.png" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="results/1_mesh.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="results/1_mesh.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="results/2_mesh.webp" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="results/2_mesh.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="results/2_mesh.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="results/3_img.webp" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="results/3_mesh.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="results/3_mesh.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="results/4_img.png" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="results/4_mesh.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="results/4_mesh.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
                 <div class="rg-input"><img src="assets/input.webp" alt="Input" /></div>
                 <div class="rg-output split-viewer">
                     <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
@@ -1241,6 +1428,134 @@
                 </div>
             </div>
         </div>
+
+        <!-- Row 3 -->
+        <div class="results-row fade-in" data-row="2">
+            <div class="result-item">
+                <div class="result-label">Input</div>
+                <div class="result-input-img"><img src="assets/input.webp" alt="Input" /></div>
+            </div>
+            <div class="result-item">
+                <div class="result-label result-label-ours">Pixal3D (Ours)</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">TRELLIS 2</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">Hunyuan3D</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="results-row fade-in" data-row="3">
+            <div class="result-item">
+                <div class="result-label">Input</div>
+                <div class="result-input-img"><img src="assets/input.webp" alt="Input" /></div>
+            </div>
+            <div class="result-item">
+                <div class="result-label result-label-ours">Pixal3D (Ours)</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">TRELLIS 2</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">Hunyuan3D</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="results-row fade-in" data-row="4">
+            <div class="result-item">
+                <div class="result-label">Input</div>
+                <div class="result-input-img"><img src="assets/input.webp" alt="Input" /></div>
+            </div>
+            <div class="result-item">
+                <div class="result-label result-label-ours">Pixal3D (Ours)</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">TRELLIS 2</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">Hunyuan3D</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 6 -->
+        <div class="results-row fade-in" data-row="5">
+            <div class="result-item">
+                <div class="result-label">Input</div>
+                <div class="result-input-img"><img src="assets/input.webp" alt="Input" /></div>
+            </div>
+            <div class="result-item">
+                <div class="result-label result-label-ours">Pixal3D (Ours)</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">TRELLIS 2</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">Hunyuan3D</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+        </div>
     </section>
 
 
@@ -1322,10 +1637,36 @@
                 const allWireframe = [];
                 const allSliders = [];
 
+                // Defer loading for comparisons
                 splitViewers.forEach(sv => {
-                    allTextured.push(sv.querySelector('.sv-textured'));
-                    allWireframe.push(sv.querySelector('.sv-wireframe'));
+                    const t = sv.querySelector('.sv-textured');
+                    const w = sv.querySelector('.sv-wireframe');
+                    t.dataset.src = t.getAttribute('src');
+                    w.dataset.src = w.getAttribute('src');
+                    t.removeAttribute('src');
+                    w.removeAttribute('src');
+
+                    allTextured.push(t);
+                    allWireframe.push(w);
                     allSliders.push(sv.querySelector('.sv-slider'));
+
+                    // Add load button per viewer
+                    const loadBtn = document.createElement('button');
+                    loadBtn.className = 'sv-load-btn';
+                    loadBtn.textContent = 'Load 3D';
+                    sv.appendChild(loadBtn);
+                    loadBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        if (t.getAttribute('src')) return;
+                        loadBtn.textContent = 'Loading...';
+                        t.setAttribute('src', t.dataset.src);
+                        w.setAttribute('src', w.dataset.src);
+                        t.addEventListener('load', () => {
+                            loadBtn.textContent = '✓ Loaded';
+                            loadBtn.classList.add('loaded');
+                            setTimeout(() => loadBtn.style.display = 'none', 1500);
+                        }, { once: true });
+                    });
                 });
 
                 // --- Slider logic ---
@@ -1384,7 +1725,7 @@
 
                 splitViewers.forEach(sv => {
                     sv.addEventListener('pointerdown', (e) => {
-                        if (e.target.closest('.sv-slider')) return;
+                        if (e.target.closest('.sv-slider') || e.target.closest('.sv-load-btn')) return;
                         orbiting = true;
                         lastX = e.clientX;
                         lastY = e.clientY;
@@ -1461,7 +1802,10 @@
     </script>
 
     <!-- Results Gallery Split Viewer Logic -->
-    <script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
         (function() {
             const galleryItems = document.querySelectorAll('.results-gallery-item');
             galleryItems.forEach(item => {
@@ -1472,6 +1816,44 @@
                 const wireframe = sv.querySelector('.sv-wireframe');
                 const slider = sv.querySelector('.sv-slider');
 
+                // Defer loading: move src to data-src
+                const texturedSrc = textured.getAttribute('src');
+                const wireframeSrc = wireframe.getAttribute('src');
+                textured.removeAttribute('src');
+                wireframe.removeAttribute('src');
+                textured.dataset.src = texturedSrc;
+                wireframe.dataset.src = wireframeSrc;
+
+                // Add load button
+                const loadBtn = document.createElement('button');
+                loadBtn.className = 'sv-load-btn';
+                loadBtn.textContent = 'Load 3D';
+                sv.appendChild(loadBtn);
+
+                let modelLoaded = false;
+                loadBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (modelLoaded) return;
+                    modelLoaded = true;
+                    loadBtn.textContent = 'Loading...';
+                    textured.setAttribute('src', texturedSrc);
+                    wireframe.setAttribute('src', wireframeSrc);
+                    textured.addEventListener('load', () => {
+                        loadBtn.textContent = '✓ Loaded';
+                        loadBtn.classList.add('loaded');
+                        setTimeout(() => loadBtn.style.display = 'none', 1500);
+                        // Pre-init normal view in background
+                        initNormalView();
+                    }, { once: true });
+                });
+
+                // Add normal toggle to each split-viewer
+                const toggleEl = document.createElement('label');
+                toggleEl.className = 'sv-normal-toggle';
+                toggleEl.innerHTML = '<input type="checkbox"><span class="sv-normal-switch"></span><span class="sv-normal-text">Normal</span>';
+                sv.appendChild(toggleEl);
+                const normalCheckbox = toggleEl.querySelector('input');
+
                 // Slider
                 let dragging = false;
                 function updateSplit(pct) {
@@ -1479,6 +1861,8 @@
                     slider.style.left = pct + '%';
                     wireframe.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
                     textured.style.clipPath = `inset(0 0 0 ${pct}%)`;
+                    const nc = sv.querySelector('.sv-normal-canvas');
+                    if (nc) nc.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
                 }
 
                 slider.addEventListener('pointerdown', (e) => {
@@ -1501,7 +1885,7 @@
                 const ROTATE_SPEED = 0.008, ZOOM_SPEED = 0.001, AUTO_SPEED = 0.005, RESUME_DELAY = 2000;
 
                 sv.addEventListener('pointerdown', (e) => {
-                    if (e.target.closest('.sv-slider')) return;
+                    if (e.target.closest('.sv-slider') || e.target.closest('.sv-normal-toggle') || e.target.closest('.sv-load-btn')) return;
                     orbiting = true; lastX = e.clientX; lastY = e.clientY;
                     isAutoRotating = false; lastInteractTime = Date.now();
                     sv.setPointerCapture(e.pointerId); e.preventDefault();
@@ -1528,6 +1912,7 @@
                     const fovStr = fov + 'deg';
                     textured.cameraOrbit = orbitStr; textured.fieldOfView = fovStr;
                     wireframe.cameraOrbit = orbitStr; wireframe.fieldOfView = fovStr;
+                    if (typeof renderNormal === 'function') renderNormal();
                     requestAnimationFrame(renderLoop);
                 }
 
@@ -1538,16 +1923,91 @@
                     requestAnimationFrame(renderLoop);
                 });
 
+                // Wireframe material setup
                 wireframe.addEventListener('load', () => {
                     const model = wireframe.model;
-                    if (model) {
-                        for (const mat of model.materials) {
-                            mat.pbrMetallicRoughness.setBaseColorFactor([0.55, 0.52, 0.50, 1.0]);
-                            mat.pbrMetallicRoughness.setMetallicFactor(0.0);
-                            mat.pbrMetallicRoughness.setRoughnessFactor(0.7);
-                            mat.pbrMetallicRoughness.baseColorTexture.setTexture(null);
-                            mat.normalTexture.setTexture(null);
-                        }
+                    if (!model) return;
+                    for (const mat of model.materials) {
+                        mat.pbrMetallicRoughness.setBaseColorFactor([0.55, 0.52, 0.50, 1.0]);
+                        mat.pbrMetallicRoughness.setMetallicFactor(0.0);
+                        mat.pbrMetallicRoughness.setRoughnessFactor(0.7);
+                        mat.pbrMetallicRoughness.baseColorTexture.setTexture(null);
+                    }
+                });
+
+                // Normal rendering with Three.js
+                let normalCanvas = null;
+                let normalRenderer = null;
+                let normalScene3 = null;
+                let normalCamera3 = null;
+                let normalModel3 = null;
+                let normalReady = false;
+                let normalActive = false;
+
+                async function initNormalView() {
+                    if (normalCanvas) return;
+
+                    normalCanvas = document.createElement('canvas');
+                    normalCanvas.className = 'sv-normal-canvas';
+                    normalCanvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;z-index:3;display:none;clip-path:inset(0 50% 0 0);pointer-events:none;';
+                    sv.appendChild(normalCanvas);
+
+                    const rect = sv.getBoundingClientRect();
+                    const w = rect.width, h = rect.height;
+
+                    normalRenderer = new THREE.WebGLRenderer({ canvas: normalCanvas, antialias: true, alpha: true });
+                    normalRenderer.setSize(w, h);
+                    normalRenderer.setPixelRatio(window.devicePixelRatio);
+                    normalRenderer.setClearColor(0x0d0d14, 1);
+
+                    normalScene3 = new THREE.Scene();
+                    normalCamera3 = new THREE.PerspectiveCamera(30, w / h, 0.01, 100);
+
+                    const glbSrc = wireframe.dataset.src || wireframe.getAttribute('src');
+                    const loader = new GLTFLoader();
+                    const gltf = await loader.loadAsync(glbSrc);
+                    normalModel3 = gltf.scene;
+
+                    // Apply MeshNormalMaterial
+                    const normalMat = new THREE.MeshNormalMaterial();
+                    normalModel3.traverse(child => {
+                        if (child.isMesh) child.material = normalMat;
+                    });
+
+                    // Center model at origin
+                    const box = new THREE.Box3().setFromObject(normalModel3);
+                    const center = box.getCenter(new THREE.Vector3());
+                    normalModel3.position.sub(center);
+
+                    normalScene3.add(normalModel3);
+                    normalReady = true;
+                }
+
+                // Sync Three.js camera with model-viewer's orbit in renderLoop
+                function renderNormal() {
+                    if (!normalReady || !normalActive || !normalRenderer) return;
+                    // Convert spherical (theta, phi, radius) to cartesian
+                    const r = radius;
+                    const x = r * Math.sin(phi) * Math.sin(theta);
+                    const y = r * Math.cos(phi);
+                    const z = r * Math.sin(phi) * Math.cos(theta);
+                    normalCamera3.position.set(x, y, z);
+                    normalCamera3.lookAt(0, 0, 0);
+                    normalCamera3.fov = fov;
+                    normalCamera3.updateProjectionMatrix();
+                    normalRenderer.render(normalScene3, normalCamera3);
+                }
+
+                normalCheckbox.addEventListener('change', async () => {
+                    if (normalCheckbox.checked) {
+                        await initNormalView();
+                        normalActive = true;
+                        wireframe.style.visibility = 'hidden';
+                        if (normalCanvas) normalCanvas.style.display = 'block';
+                    } else {
+                        normalActive = false;
+                        wireframe.style.visibility = 'visible';
+                        if (normalCanvas) normalCanvas.style.display = 'none';
                     }
                 });
             });
