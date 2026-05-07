@@ -2037,17 +2037,21 @@
                     normalReady = true;
                 }
 
-                // Sync Three.js camera with model-viewer's orbit in renderLoop
+                // Sync Three.js camera with model-viewer's actual orbit
                 function renderNormal() {
                     if (!normalReady || !normalActive || !normalRenderer) return;
-                    // Convert spherical (theta, phi, radius) to cartesian
-                    const r = radius;
-                    const x = r * Math.sin(phi) * Math.sin(theta);
-                    const y = r * Math.cos(phi);
-                    const z = r * Math.sin(phi) * Math.cos(theta);
+                    // Read actual camera state from model-viewer (after its internal interpolation)
+                    const orbit = textured.getCameraOrbit();
+                    const actualFov = textured.getFieldOfView();
+                    const r = orbit.radius;
+                    const t = orbit.theta;
+                    const p = orbit.phi;
+                    const x = r * Math.sin(p) * Math.sin(t);
+                    const y = r * Math.cos(p);
+                    const z = r * Math.sin(p) * Math.cos(t);
                     normalCamera3.position.set(x, y, z);
                     normalCamera3.lookAt(0, 0, 0);
-                    normalCamera3.fov = fov;
+                    normalCamera3.fov = actualFov;
                     normalCamera3.updateProjectionMatrix();
                     normalRenderer.render(normalScene3, normalCamera3);
                 }
