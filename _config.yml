@@ -1,1 +1,4 @@
-theme: jekyll-theme-cayman
+# Site settings
+title: "Dongyang Li - Tsinghua University"
+description: "Personal academic homepage of Dongyang Li"
+url: "https://ldyang694.github.io"
