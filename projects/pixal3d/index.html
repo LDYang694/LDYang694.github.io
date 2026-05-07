@@ -82,7 +82,7 @@
         }
 
         .nav-inner {
-            max-width: 1200px;
+            max-width: 80%;
             margin: 0 auto;
             padding: 0 24px;
             height: 64px;
@@ -130,33 +130,53 @@
             padding: 120px 24px 80px;
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('assets/teaser.png') center top / cover no-repeat;
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
+        }
+
         .hero-content {
-            max-width: 800px;
+            max-width: 1100px;
         }
 
         .badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 16px;
+            padding: 10px 24px;
             border-radius: 100px;
             background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.3);
             color: var(--primary-light);
-            font-size: 0.85rem;
-            font-weight: 500;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+            letter-spacing: 0.02em;
+        }
+
+        .badge:hover {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+
+        .badge-sig {
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .badge-year {
+            color: var(--primary-light);
+        }
+
+        .badge {
             margin-bottom: 32px;
         }
-
-        .badge::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--primary-light);
-            animation: pulse 2s infinite;
-        }
-
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.4; }
@@ -182,6 +202,111 @@
             max-width: 600px;
             margin: 0 auto 40px;
             line-height: 1.7;
+        }
+
+        .hero-authors {
+            font-size: 1.05rem;
+            color: var(--text);
+            margin-bottom: 8px;
+            line-height: 1.8;
+        }
+
+        .hero-authors a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .hero-authors a:hover {
+            color: var(--primary-light);
+        }
+
+        .hero-authors sup {
+            color: var(--primary-light);
+            font-size: 0.7rem;
+        }
+
+        .hero-affiliations {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .hero-affiliations sup {
+            color: var(--primary-light);
+            font-size: 0.65rem;
+        }
+
+        .hero-footnote {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            font-style: italic;
+        }
+
+        .abstract-text {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .pipeline-image {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .pipeline-image img {
+            width: 100%;
+            max-width: 1400px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .pipeline-caption {
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Teaser */
+        .teaser-section {
+            padding-top: 0;
+            padding-bottom: 40px;
+        }
+
+        .teaser-wrapper {
+            text-align: center;
+        }
+
+        .teaser-wrapper img {
+            width: 100%;
+            max-width: 80%;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        /* Video */
+        .video-wrapper {
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: #0d0d14;
+            min-height: 300px;
+        }
+
+        .video-caption {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
         }
 
         .hero-buttons {
@@ -236,13 +361,13 @@
         section {
             position: relative;
             z-index: 1;
-            max-width: 1200px;
+            max-width: 80%;
             margin: 0 auto;
             padding: 100px 24px;
         }
 
         .section-label {
-            font-size: 0.85rem;
+            font-size: 1.05rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -251,7 +376,7 @@
         }
 
         .section-title {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
             font-weight: 700;
             letter-spacing: -0.02em;
             margin-bottom: 20px;
@@ -260,9 +385,68 @@
         .section-desc {
             font-size: 1.1rem;
             color: var(--text-muted);
-            max-width: 600px;
             line-height: 1.7;
             margin-bottom: 60px;
+        }
+
+        /* Results Gallery */
+        .results-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .results-gallery-item {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            aspect-ratio: 2 / 1;
+        }
+
+        .rg-input {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0d0d14;
+            border-right: 1px solid var(--border);
+        }
+
+        .rg-input img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .rg-output {
+            background: #13131a;
+            position: relative;
+        }
+
+        .rg-output.split-viewer {
+            height: auto;
+        }
+
+        .rg-output.split-viewer model-viewer {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            --poster-color: transparent;
+        }
+
+        @media (max-width: 1200px) {
+            .results-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .results-gallery {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Features Grid */
@@ -405,8 +589,283 @@
         }
 
         /* Viewer */
+        .results-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .results-row + .results-row {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            display: flex;
+            flex-direction: column;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+        }
+
+        .result-label {
+            text-align: center;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .result-label-ours {
+            color: var(--primary-light);
+            background: rgba(99, 102, 241, 0.08);
+        }
+
+        .result-input-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            background: #0d0d14;
+        }
+
+        .result-input-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Split viewer (wireframe/textured comparison) */
+        .split-viewer {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .split-viewer model-viewer {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            --poster-color: transparent;
+        }
+
+        .split-viewer .sv-textured {
+            z-index: 1;
+            background: #13131a;
+        }
+
+        .split-viewer .sv-wireframe {
+            z-index: 2;
+            background: #0d0d14;
+            pointer-events: none;
+        }
+
+        .sv-slider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            z-index: 10;
+            cursor: ew-resize;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sv-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 0 6px rgba(99, 102, 241, 0.4);
+        }
+
+        .sv-handle {
+            position: relative;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+        }
+
+        @media (max-width: 1200px) {
+            .results-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .results-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .viewer-container {
             margin-top: 20px;
+        }
+
+        /* Sync toggle */
+        .sync-toggle {
+            margin-top: 16px;
+        }
+
+        .toggle-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .toggle-label input {
+            display: none;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 38px;
+            height: 20px;
+            border-radius: 10px;
+            background: var(--border);
+            transition: background 0.2s;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #fff;
+            transition: transform 0.2s;
+        }
+
+        .toggle-label input:checked + .toggle-switch {
+            background: var(--primary);
+        }
+
+        .toggle-label input:checked + .toggle-switch::after {
+            transform: translateX(18px);
+        }
+
+        .toggle-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .comparison-viewer {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #13131a;
+            border: 1px solid #27272a;
+            user-select: none;
+        }
+
+        .viewer-layer {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            --poster-color: transparent;
+        }
+
+        .viewer-left {
+            z-index: 2;
+            background: #0d0d14;
+            pointer-events: none;
+        }
+
+        .viewer-right {
+            z-index: 1;
+            background: #13131a;
+        }
+
+        .comparison-slider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            z-index: 10;
+            cursor: ew-resize;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+        }
+
+        .slider-handle {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 12px rgba(99, 102, 241, 0.5);
+            color: #fff;
+        }
+
+        .slider-handle svg:first-child {
+            margin-right: -6px;
+        }
+
+        .slider-handle svg:last-child {
+            margin-left: -6px;
+        }
+
+        .comparison-label {
+            position: absolute;
+            top: 16px;
+            z-index: 5;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 12px;
+            border-radius: 8px;
+            background: rgba(10, 10, 15, 0.8);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .label-left {
+            left: 16px;
+        }
+
+        .label-right {
+            right: 16px;
         }
 
         .viewer-caption {
@@ -550,12 +1009,11 @@
         <div class="nav-inner">
             <div class="logo">Pixal3D</div>
             <ul class="nav-links">
-                <li><a href="#method">Method</a></li>
-                <li><a href="#features">Features</a></li>
+                <li><a href="#abstract">Abstract</a></li>
                 <li><a href="#results">Results</a></li>
-                <li><a href="#usage">Usage</a></li>
+                <li><a href="#comparisons">Comparisons</a></li>
+                <li><a href="#method">Method</a></li>
                 <li><a href="#citation">Citation</a></li>
-                <li><a href="https://github.com" target="_blank">GitHub</a></li>
             </ul>
         </div>
     </nav>
@@ -563,18 +1021,51 @@
     <!-- Hero -->
     <div class="hero">
         <div class="hero-content fade-in">
-            <div class="badge">Research Project</div>
+            <a href="https://s2026.siggraph.org/" target="_blank" class="badge">
+                <span class="badge-sig">SIGGRAPH</span> <span class="badge-year">2026</span>
+            </a>
             <h1>
                 <span class="gradient-text">Pixal3D</span><br>
-                High-Quality 3D Generation
+                Pixel-Aligned 3D Generation from Images
             </h1>
-            <p class="hero-desc">
-                A novel approach to high-fidelity 3D content generation, enabling realistic and detailed 3D assets from minimal input.
+            <p class="hero-authors">
+                <a href="#">Dong-Yang Li</a><sup>1</sup>,
+                <a href="#">Wang Zhao</a><sup>2*</sup>,
+                <a href="#">Yuxin Chen</a><sup>2</sup>,
+                <a href="#">Wenbo Hu</a><sup>2</sup>,
+                <a href="#">Meng-Hao Guo</a><sup>1</sup>,
+                <a href="#">Fang-Lue Zhang</a><sup>3</sup>,
+                <a href="#">Ying Shan</a><sup>2</sup>,
+                <a href="#">Shi-Min Hu</a><sup>1†</sup>
+            </p>
+            <p class="hero-affiliations">
+                <sup>1</sup>BNRist, Department of Computer Science and Technology, Tsinghua University &nbsp;&nbsp;
+                <sup>2</sup>Tencent ARC Lab &nbsp;&nbsp;
+                <sup>3</sup>Victoria University of Wellington
+            </p>
+            <p class="hero-footnote">
+                *Project lead. &nbsp;&nbsp; †Corresponding author.
             </p>
             <div class="hero-buttons">
-                <a href="https://arxiv.org" target="_blank" class="btn btn-primary">
+                <a href="#" class="btn btn-primary">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
                     Paper
+                </a>
+                <a href="https://arxiv.org" target="_blank" class="btn btn-secondary">
+                    <span style="font-size:1.1rem;">📄</span>
+                    Arxiv
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <span style="font-size:1.1rem;">🤗</span>
+                    Demo
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    Model
+                </a>
+                <a href="#video" class="btn btn-secondary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/><line x1="17" y1="17" x2="22" y2="17"/></svg>
+                    Video
                 </a>
                 <a href="https://github.com" target="_blank" class="btn btn-secondary">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
@@ -584,148 +1075,187 @@
         </div>
     </div>
 
-    <!-- Method -->
-    <section id="method">
+    <!-- Video -->
+    <section id="video">
         <div class="fade-in">
-            <div class="section-label">Method</div>
-            <div class="section-title">Our Approach</div>
-            <p class="section-desc">
-                Pixal3D introduces a multi-stage pipeline for generating high-quality 3D assets with fine-grained geometric and texture details.
-            </p>
+            <div class="section-label">Video</div>
         </div>
-
-        <div class="pipeline-visual fade-in">
-            <div class="pipeline-steps">
-                <div class="pipeline-step">
-                    <div class="step-icon">📝</div>
-                    <div class="step-label">Input</div>
-                    <div class="step-desc">Text / Image</div>
-                </div>
-                <div class="pipeline-arrow">→</div>
-                <div class="pipeline-step">
-                    <div class="step-icon">🔮</div>
-                    <div class="step-label">Coarse Stage</div>
-                    <div class="step-desc">Initial 3D Shape</div>
-                </div>
-                <div class="pipeline-arrow">→</div>
-                <div class="pipeline-step">
-                    <div class="step-icon">✨</div>
-                    <div class="step-label">Refinement</div>
-                    <div class="step-desc">Detail Enhancement</div>
-                </div>
-                <div class="pipeline-arrow">→</div>
-                <div class="pipeline-step">
-                    <div class="step-icon">🎨</div>
-                    <div class="step-label">Texturing</div>
-                    <div class="step-desc">High-Res Texture</div>
-                </div>
-                <div class="pipeline-arrow">→</div>
-                <div class="pipeline-step">
-                    <div class="step-icon">🧊</div>
-                    <div class="step-label">Output</div>
-                    <div class="step-desc">3D Asset</div>
-                </div>
-            </div>
+        <div class="video-wrapper fade-in">
+            <video controls preload="none">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="video-caption">Video coming soon.</p>
         </div>
     </section>
 
-    <!-- Features -->
-    <section id="features">
+    <!-- Abstract -->
+    <section id="abstract">
         <div class="fade-in">
-            <div class="section-label">Features</div>
-            <div class="section-title">What Makes Pixal3D Special</div>
-            <p class="section-desc">
-                Key capabilities that set Pixal3D apart from existing 3D generation methods.
+            <div class="section-label">Abstract</div>
+            <p class="abstract-text">
+                Recent advances in 3D generative models have rapidly improved image-to-3D synthesis quality, enabling higher-resolution geometry and more realistic appearance. Yet fidelity, which measures pixel-level faithfulness of the generated 3D asset to the input image, still remains a central bottleneck. We argue this stems from an implicit 2D-3D correspondence issue: most 3D-native generators synthesize shapes in canonical space and inject image cues via attention, leaving pixel-to-3D associations ambiguous. To tackle this issue, we draw inspiration from 3D reconstruction and propose Pixal3D, a pixel-aligned 3D generation paradigm for high-fidelity 3D asset creation from images. Instead of generating in a canonical pose, Pixal3D directly generates 3D in a pixel-aligned way, consistent with the input view. To enable this, we introduce a pixel back-projection conditioning scheme that explicitly lifts multi-scale image features into a 3D feature volume, establishing direct pixel-to-3D correspondence without ambiguity. We show that Pixal3D is not only scalable and capable of producing high-quality 3D assets, but also substantially improves fidelity, approaching the fidelity level of reconstruction. Furthermore, Pixal3D naturally extends to multi-view generation by aggregating back-projected feature volumes across views. Finally, we show pixel-aligned generation benefits scene synthesis, and present a modular pipeline that produces high-fidelity, object-separated 3D scenes from images.
             </p>
         </div>
-
-        <div class="features-grid">
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🎯</div>
-                <h3>High Fidelity</h3>
-                <p>Generates 3D assets with exceptional geometric precision and realistic surface details that rival hand-crafted models.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">⚡</div>
-                <h3>Fast Generation</h3>
-                <p>Efficient pipeline design enables rapid 3D content creation, significantly reducing the time from input to final output.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🔄</div>
-                <h3>Multi-Modal Input</h3>
-                <p>Supports both text descriptions and image inputs, providing flexible and intuitive ways to specify desired 3D content.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">📐</div>
-                <h3>Consistent Geometry</h3>
-                <p>Novel consistency constraints ensure coherent geometry from all viewpoints, eliminating common multi-view artifacts.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🖌️</div>
-                <h3>Rich Textures</h3>
-                <p>Advanced texture synthesis produces high-resolution, detailed surface appearances with physically plausible material properties.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">📦</div>
-                <h3>Export Ready</h3>
-                <p>Outputs industry-standard formats compatible with major 3D software and game engines for seamless integration.</p>
-            </div>
-        </div>
     </section>
+
+
 
     <!-- Results -->
     <section id="results">
         <div class="fade-in">
             <div class="section-label">Results</div>
-            <div class="section-title">Generated Examples</div>
             <p class="section-desc">
-                Interactive 3D viewer — drag to rotate, scroll to zoom, pinch on mobile.
+                Drag to rotate, scroll to zoom. Drag the slider to compare textured and geometry views.
             </p>
         </div>
-
-        <div class="viewer-container fade-in">
-            <model-viewer
-                src="assets/sample.glb"
-                alt="Pixal3D generated 3D model"
-                auto-rotate
-                camera-controls
-                shadow-intensity="1"
-                environment-image="neutral"
-                exposure="1.0"
-                style="width: 100%; height: 500px; border-radius: 16px; background: #13131a; border: 1px solid #27272a;"
-            ></model-viewer>
-            <p class="viewer-caption">Generated 3D Asset — Drag to rotate, scroll to zoom</p>
+        <div class="results-gallery fade-in">
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="results-gallery-item">
+                <div class="rg-input"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="rg-output split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Usage -->
-    <section id="usage">
+    <!-- Comparisons -->
+    <section id="comparisons">
         <div class="fade-in">
-            <div class="section-label">Quick Start</div>
-            <div class="section-title">Get Started</div>
+            <div class="section-label">Comparisons</div>
             <p class="section-desc">
-                Set up Pixal3D in minutes and start generating 3D assets.
+                Each row shares synchronized rotation and slider. Drag to rotate, scroll to zoom.
+            </p>
+            <div class="sync-toggle">
+                <label class="toggle-label">
+                    <input type="checkbox" id="syncSliderToggle" checked />
+                    <span class="toggle-switch"></span>
+                    <span class="toggle-text">Sync sliders within row</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Row 1 -->
+        <div class="results-row fade-in" data-row="0">
+            <div class="result-item">
+                <div class="result-label">Input</div>
+                <div class="result-input-img"><img src="assets/input.webp" alt="Input" /></div>
+            </div>
+            <div class="result-item">
+                <div class="result-label result-label-ours">Pixal3D (Ours)</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">TRELLIS 2</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">Hunyuan3D</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="results-row fade-in" data-row="1">
+            <div class="result-item">
+                <div class="result-label">Input</div>
+                <div class="result-input-img"><img src="assets/input.webp" alt="Input" /></div>
+            </div>
+            <div class="result-item">
+                <div class="result-label result-label-ours">Pixal3D (Ours)</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">TRELLIS 2</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">Hunyuan3D</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Method -->
+    <section id="method">
+        <div class="fade-in">
+            <div class="section-label">Method</div>
+            <div class="section-title">Framework Overview</div>
+            <p class="section-desc">
+                Pixal3D consists of three key components: (1) Pixel-Aligned Structured Latent Representation Learning using a VAE to compress pixel-aligned sparse SDF into efficient sparse latents; (2) an Image Back-Projection-based Conditioner that explicitly lifts 2D image features into 3D feature volumes; and (3) a two-stage generative process conditioned on these volumes to predict coarse structure and detailed latents, decoded into a high-fidelity mesh.
             </p>
         </div>
 
-        <div class="code-block fade-in">
-            <div class="code-header">
-                <div class="code-dot"></div>
-                <div class="code-dot"></div>
-                <div class="code-dot"></div>
-                <span>terminal</span>
-            </div>
-            <div class="code-body">
-<pre><span class="comment"># Clone the repository</span>
-<span class="func">git</span> clone https://github.com/YOUR_USERNAME/pixal3d.git
-<span class="func">cd</span> pixal3d
-
-<span class="comment"># Install dependencies</span>
-<span class="func">pip</span> install -r requirements.txt
-
-<span class="comment"># Run generation</span>
-<span class="func">python</span> generate.py --input <span class="string">"a detailed medieval castle"</span> --output castle.obj</pre>
-            </div>
+        <div class="pipeline-image fade-in">
+            <img src="assets/pipeline.png" alt="Pixal3D Framework Overview" />
+            <p class="pipeline-caption">Fig. 2. Overview of the Pixal3D framework.</p>
         </div>
     </section>
 
@@ -733,17 +1263,15 @@
     <section id="citation">
         <div class="fade-in">
             <div class="section-label">Citation</div>
-            <div class="section-title">Cite Our Work</div>
             <p class="section-desc">
                 If you find Pixal3D useful in your research, please consider citing our paper.
             </p>
         </div>
 
         <div class="citation-box fade-in">
-<pre>@article{pixal3d2026,
-  title   = {Pixal3D: High-Quality 3D Generation},
-  author  = {Your Name and Collaborators},
-  journal = {arXiv preprint arXiv:2026.XXXXX},
+<pre>@article{li2026pixal3d,
+  title   = {Pixal3D: Pixel-Aligned 3D Generation from Images},
+  author  = {Li, Dong-Yang and Zhao, Wang and Chen, Yuxin and Hu, Wenbo and Guo, Meng-Hao and Zhang, Fang-Lue and Shan, Ying and Hu, Shi-Min},
   year    = {2026}
 }</pre>
         </div>
@@ -751,7 +1279,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Pixal3D. Built with ❤️ for the research community.</p>
+        <p>&copy; 2026 Pixal3D.</p>
     </footer>
 
     <!-- Scroll Animation -->
@@ -779,6 +1307,250 @@
                 }
             });
         });
+    </script>
+
+    <!-- Split Viewer Logic (per-row independent) -->
+    <script>
+        (function() {
+            const rows = document.querySelectorAll('.results-row');
+            const syncToggle = document.getElementById('syncSliderToggle');
+
+            rows.forEach((row) => {
+                const splitViewers = row.querySelectorAll('.split-viewer');
+                const allTextured = [];
+                const allWireframe = [];
+                const allSliders = [];
+
+                splitViewers.forEach(sv => {
+                    allTextured.push(sv.querySelector('.sv-textured'));
+                    allWireframe.push(sv.querySelector('.sv-wireframe'));
+                    allSliders.push(sv.querySelector('.sv-slider'));
+                });
+
+                // --- Slider logic ---
+                let sliderDragging = false;
+                let sliderTarget = null;
+
+                function updateSplit(sv, pct) {
+                    pct = Math.max(5, Math.min(95, pct));
+                    const slider = sv.querySelector('.sv-slider');
+                    const wireframe = sv.querySelector('.sv-wireframe');
+                    const textured = sv.querySelector('.sv-textured');
+                    slider.style.left = pct + '%';
+                    wireframe.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+                    textured.style.clipPath = `inset(0 0 0 ${pct}%)`;
+                }
+
+                function updateSliders(pct) {
+                    if (syncToggle.checked) {
+                        splitViewers.forEach(sv => updateSplit(sv, pct));
+                    } else {
+                        if (sliderTarget) updateSplit(sliderTarget, pct);
+                    }
+                }
+
+                allSliders.forEach(slider => {
+                    slider.addEventListener('pointerdown', (e) => {
+                        sliderDragging = true;
+                        sliderTarget = slider.closest('.split-viewer');
+                        slider.setPointerCapture(e.pointerId);
+                        e.preventDefault();
+                        e.stopPropagation();
+                    });
+                });
+
+                document.addEventListener('pointermove', (e) => {
+                    if (!sliderDragging || !sliderTarget) return;
+                    const rect = sliderTarget.getBoundingClientRect();
+                    updateSliders(((e.clientX - rect.left) / rect.width) * 100);
+                });
+                document.addEventListener('pointerup', () => { sliderDragging = false; sliderTarget = null; });
+
+                // --- Camera state for this row ---
+                let theta = 0;
+                let phi = 1.2;
+                let radius = 0;
+                let fov = 0;
+                let defaultRadius = 0;
+                let orbiting = false;
+                let lastX = 0, lastY = 0;
+                let isAutoRotating = true;
+                let lastInteractTime = 0;
+                const ROTATE_SPEED = 0.008;
+                const ZOOM_SPEED = 0.001;
+                const AUTO_SPEED = 0.005;
+                const RESUME_DELAY = 2000;
+
+                splitViewers.forEach(sv => {
+                    sv.addEventListener('pointerdown', (e) => {
+                        if (e.target.closest('.sv-slider')) return;
+                        orbiting = true;
+                        lastX = e.clientX;
+                        lastY = e.clientY;
+                        isAutoRotating = false;
+                        lastInteractTime = Date.now();
+                        sv.setPointerCapture(e.pointerId);
+                        e.preventDefault();
+                    });
+                    sv.addEventListener('pointermove', (e) => {
+                        if (!orbiting) return;
+                        const dx = e.clientX - lastX;
+                        const dy = e.clientY - lastY;
+                        lastX = e.clientX;
+                        lastY = e.clientY;
+                        theta -= dx * ROTATE_SPEED;
+                        phi = Math.max(0.1, Math.min(Math.PI - 0.1, phi - dy * ROTATE_SPEED));
+                        lastInteractTime = Date.now();
+                    });
+                    sv.addEventListener('pointerup', () => { orbiting = false; });
+                    sv.addEventListener('pointercancel', () => { orbiting = false; });
+                    sv.addEventListener('wheel', (e) => {
+                        e.preventDefault();
+                        if (!defaultRadius) return;
+                        radius += e.deltaY * defaultRadius * ZOOM_SPEED;
+                        radius = Math.max(defaultRadius * 0.3, Math.min(defaultRadius * 3, radius));
+                        isAutoRotating = false;
+                        lastInteractTime = Date.now();
+                    }, { passive: false });
+                });
+
+                function renderLoop() {
+                    if (!isAutoRotating && !orbiting && Date.now() - lastInteractTime > RESUME_DELAY) {
+                        isAutoRotating = true;
+                    }
+                    if (isAutoRotating) {
+                        theta += AUTO_SPEED;
+                    }
+                    const orbitStr = `${theta}rad ${phi}rad ${radius}m`;
+                    const fovStr = fov + 'deg';
+                    allTextured.forEach(v => { v.cameraOrbit = orbitStr; v.fieldOfView = fovStr; });
+                    allWireframe.forEach(v => { v.cameraOrbit = orbitStr; v.fieldOfView = fovStr; });
+                    requestAnimationFrame(renderLoop);
+                }
+
+                let initialized = false;
+                allTextured[0].addEventListener('load', () => {
+                    if (initialized) return;
+                    initialized = true;
+                    const orbit = allTextured[0].getCameraOrbit();
+                    theta = orbit.theta;
+                    phi = orbit.phi;
+                    radius = orbit.radius;
+                    defaultRadius = radius;
+                    fov = allTextured[0].getFieldOfView();
+                    requestAnimationFrame(renderLoop);
+                });
+
+                allWireframe.forEach(v => {
+                    v.addEventListener('load', () => {
+                        const model = v.model;
+                        if (model) {
+                            for (const mat of model.materials) {
+                                mat.pbrMetallicRoughness.setBaseColorFactor([0.55, 0.52, 0.50, 1.0]);
+                                mat.pbrMetallicRoughness.setMetallicFactor(0.0);
+                                mat.pbrMetallicRoughness.setRoughnessFactor(0.7);
+                                mat.pbrMetallicRoughness.baseColorTexture.setTexture(null);
+                                mat.normalTexture.setTexture(null);
+                            }
+                        }
+                    });
+                });
+            });
+        })();
+    </script>
+
+    <!-- Results Gallery Split Viewer Logic -->
+    <script>
+        (function() {
+            const galleryItems = document.querySelectorAll('.results-gallery-item');
+            galleryItems.forEach(item => {
+                const sv = item.querySelector('.split-viewer');
+                if (!sv) return;
+
+                const textured = sv.querySelector('.sv-textured');
+                const wireframe = sv.querySelector('.sv-wireframe');
+                const slider = sv.querySelector('.sv-slider');
+
+                // Slider
+                let dragging = false;
+                function updateSplit(pct) {
+                    pct = Math.max(5, Math.min(95, pct));
+                    slider.style.left = pct + '%';
+                    wireframe.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+                    textured.style.clipPath = `inset(0 0 0 ${pct}%)`;
+                }
+
+                slider.addEventListener('pointerdown', (e) => {
+                    dragging = true;
+                    slider.setPointerCapture(e.pointerId);
+                    e.preventDefault();
+                    e.stopPropagation();
+                });
+                document.addEventListener('pointermove', (e) => {
+                    if (!dragging) return;
+                    const rect = sv.getBoundingClientRect();
+                    updateSplit(((e.clientX - rect.left) / rect.width) * 100);
+                });
+                document.addEventListener('pointerup', () => { dragging = false; });
+
+                // Camera sync
+                let theta = 0, phi = 1.2, radius = 0, fov = 0, defaultRadius = 0;
+                let orbiting = false, lastX = 0, lastY = 0;
+                let isAutoRotating = true, lastInteractTime = 0;
+                const ROTATE_SPEED = 0.008, ZOOM_SPEED = 0.001, AUTO_SPEED = 0.005, RESUME_DELAY = 2000;
+
+                sv.addEventListener('pointerdown', (e) => {
+                    if (e.target.closest('.sv-slider')) return;
+                    orbiting = true; lastX = e.clientX; lastY = e.clientY;
+                    isAutoRotating = false; lastInteractTime = Date.now();
+                    sv.setPointerCapture(e.pointerId); e.preventDefault();
+                });
+                sv.addEventListener('pointermove', (e) => {
+                    if (!orbiting) return;
+                    theta -= (e.clientX - lastX) * ROTATE_SPEED;
+                    phi = Math.max(0.1, Math.min(Math.PI - 0.1, phi - (e.clientY - lastY) * ROTATE_SPEED));
+                    lastX = e.clientX; lastY = e.clientY; lastInteractTime = Date.now();
+                });
+                sv.addEventListener('pointerup', () => { orbiting = false; });
+                sv.addEventListener('wheel', (e) => {
+                    e.preventDefault();
+                    if (!defaultRadius) return;
+                    radius += e.deltaY * defaultRadius * ZOOM_SPEED;
+                    radius = Math.max(defaultRadius * 0.3, Math.min(defaultRadius * 3, radius));
+                    isAutoRotating = false; lastInteractTime = Date.now();
+                }, { passive: false });
+
+                function renderLoop() {
+                    if (!isAutoRotating && !orbiting && Date.now() - lastInteractTime > RESUME_DELAY) isAutoRotating = true;
+                    if (isAutoRotating) theta += AUTO_SPEED;
+                    const orbitStr = `${theta}rad ${phi}rad ${radius}m`;
+                    const fovStr = fov + 'deg';
+                    textured.cameraOrbit = orbitStr; textured.fieldOfView = fovStr;
+                    wireframe.cameraOrbit = orbitStr; wireframe.fieldOfView = fovStr;
+                    requestAnimationFrame(renderLoop);
+                }
+
+                textured.addEventListener('load', () => {
+                    const orbit = textured.getCameraOrbit();
+                    theta = orbit.theta; phi = orbit.phi; radius = orbit.radius; defaultRadius = radius;
+                    fov = textured.getFieldOfView();
+                    requestAnimationFrame(renderLoop);
+                });
+
+                wireframe.addEventListener('load', () => {
+                    const model = wireframe.model;
+                    if (model) {
+                        for (const mat of model.materials) {
+                            mat.pbrMetallicRoughness.setBaseColorFactor([0.55, 0.52, 0.50, 1.0]);
+                            mat.pbrMetallicRoughness.setMetallicFactor(0.0);
+                            mat.pbrMetallicRoughness.setRoughnessFactor(0.7);
+                            mat.pbrMetallicRoughness.baseColorTexture.setTexture(null);
+                            mat.normalTexture.setTexture(null);
+                        }
+                    }
+                });
+            });
+        })();
     </script>
 </body>
 </html>
