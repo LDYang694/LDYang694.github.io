@@ -406,6 +406,36 @@
             gap: 20px;
         }
 
+        /* Camera reset button */
+        .sv-reset-btn {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            z-index: 10;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: rgba(10, 10, 15, 0.8);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .sv-reset-btn:hover {
+            background: rgba(99, 102, 241, 0.8);
+            color: #fff;
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+
+        .sv-reset-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
         /* Expand button */
         .sv-expand-btn {
             position: absolute;
@@ -831,8 +861,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 300px;
+            aspect-ratio: 1 / 1;
             background: #0d0d14;
+            overflow: hidden;
         }
 
         .result-input-img img {
@@ -845,7 +876,7 @@
         .split-viewer {
             position: relative;
             width: 100%;
-            height: 300px;
+            aspect-ratio: 1 / 1;
             overflow: hidden;
             user-select: none;
         }
@@ -1260,11 +1291,11 @@
                     <span style="font-size:1.1rem;">📄</span>
                     Arxiv
                 </a>
-                <a href="#" class="btn btn-secondary">
+                <a href="https://huggingface.co/spaces/TencentARC/Pixal3D-T" target="_blank" class="btn btn-secondary">
                     <span style="font-size:1.1rem;">🤗</span>
                     Demo
                 </a>
-                <a href="#" class="btn btn-secondary">
+                <a href="https://huggingface.co/TencentARC/Pixal3D-T" target="_blank" class="btn btn-secondary">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
                     Model
                 </a>
@@ -1380,10 +1411,10 @@
                 </div>
             </div>
             <div class="results-gallery-item">
-                <div class="rg-input"><img src="results/8_img.png" alt="Input" /></div>
+                <div class="rg-input"><img src="results/21_img.png" alt="Input" /></div>
                 <div class="rg-output split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="results/8_mesh.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="results/8_mesh.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="results/21_mesh.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="results/21_mesh.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
@@ -1452,10 +1483,10 @@
                 </div>
             </div>
             <div class="results-gallery-item">
-                <div class="rg-input"><img src="results/s_19_img.png" data-seg="results/s_19_seg.png" alt="Input" /></div>
+                <div class="rg-input"><img src="results/s_20_img.webp" data-seg="results/s_20_seg.png" alt="Input" /></div>
                 <div class="rg-output split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="results/s_19_mesh.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="results/s_19_mesh.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="results/s_20_mesh.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="results/s_20_mesh.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
@@ -1478,193 +1509,193 @@
             </div>
         </div>
 
-        <!-- Row 1 -->
+        <!-- Row 1: keyboard -->
         <div class="results-row fade-in" data-row="0">
             <div class="result-item">
                 <div class="result-label">Input</div>
-                <div class="result-input-img"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="result-input-img"><img src="compa/image/keyboard.jpg" alt="Input" /></div>
             </div>
             <div class="result-item">
-                <div class="result-label result-label-ours">Pixal3D (Ours)</div>
+                <div class="result-label result-label-ours">Pixal3D</div>
                 <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/keyboard.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/keyboard.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
             <div class="result-item">
                 <div class="result-label">TRELLIS 2</div>
                 <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/keyboard-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/keyboard-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
             <div class="result-item">
-                <div class="result-label">Hunyuan3D</div>
+                <div class="result-label">HY3D V3.1</div>
                 <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/keyboard-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/keyboard-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
         </div>
 
-        <!-- Row 2 -->
-        <div class="results-row fade-in" data-row="1">
-            <div class="result-item">
-                <div class="result-label">Input</div>
-                <div class="result-input-img"><img src="assets/input.webp" alt="Input" /></div>
-            </div>
-            <div class="result-item">
-                <div class="result-label result-label-ours">Pixal3D (Ours)</div>
-                <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
-                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
-                </div>
-            </div>
-            <div class="result-item">
-                <div class="result-label">TRELLIS 2</div>
-                <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
-                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
-                </div>
-            </div>
-            <div class="result-item">
-                <div class="result-label">Hunyuan3D</div>
-                <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
-                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Row 3 -->
+        <!-- Row 3: pizza -->
         <div class="results-row fade-in" data-row="2">
             <div class="result-item">
                 <div class="result-label">Input</div>
-                <div class="result-input-img"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="result-input-img"><img src="compa/image/pizza.png" alt="Input" /></div>
             </div>
             <div class="result-item">
-                <div class="result-label result-label-ours">Pixal3D (Ours)</div>
+                <div class="result-label result-label-ours">Pixal3D</div>
                 <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/pizza.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/pizza.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
             <div class="result-item">
                 <div class="result-label">TRELLIS 2</div>
                 <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/pizza-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/pizza-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
             <div class="result-item">
-                <div class="result-label">Hunyuan3D</div>
+                <div class="result-label">HY3D V3.1</div>
                 <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/pizza-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/pizza-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
         </div>
 
-        <!-- Row 4 -->
+        <!-- Row 4: treehouse -->
         <div class="results-row fade-in" data-row="3">
             <div class="result-item">
                 <div class="result-label">Input</div>
-                <div class="result-input-img"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="result-input-img"><img src="compa/image/treehouse.png" alt="Input" /></div>
             </div>
             <div class="result-item">
-                <div class="result-label result-label-ours">Pixal3D (Ours)</div>
+                <div class="result-label result-label-ours">Pixal3D</div>
                 <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/treehouse.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/treehouse.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
             <div class="result-item">
                 <div class="result-label">TRELLIS 2</div>
                 <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/treehouse-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/treehouse-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
             <div class="result-item">
-                <div class="result-label">Hunyuan3D</div>
+                <div class="result-label">HY3D V3.1</div>
                 <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/treehouse-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/treehouse-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
         </div>
 
-        <!-- Row 5 -->
+        <!-- Row 5: well -->
         <div class="results-row fade-in" data-row="4">
             <div class="result-item">
                 <div class="result-label">Input</div>
-                <div class="result-input-img"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="result-input-img"><img src="compa/image/well.jpg" alt="Input" /></div>
             </div>
             <div class="result-item">
-                <div class="result-label result-label-ours">Pixal3D (Ours)</div>
+                <div class="result-label result-label-ours">Pixal3D</div>
                 <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/well.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/well.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
             <div class="result-item">
                 <div class="result-label">TRELLIS 2</div>
                 <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/well-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/well-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
             <div class="result-item">
-                <div class="result-label">Hunyuan3D</div>
+                <div class="result-label">HY3D V3.1</div>
                 <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/well.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/well.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
         </div>
 
-        <!-- Row 6 -->
+        <!-- Row 6: windhouse -->
         <div class="results-row fade-in" data-row="5">
             <div class="result-item">
                 <div class="result-label">Input</div>
-                <div class="result-input-img"><img src="assets/input.webp" alt="Input" /></div>
+                <div class="result-input-img"><img src="compa/image/windhouse.png" alt="Input" /></div>
             </div>
             <div class="result-item">
-                <div class="result-label result-label-ours">Pixal3D (Ours)</div>
+                <div class="result-label result-label-ours">Pixal3D</div>
                 <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/windhouse.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/windhouse.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
             <div class="result-item">
                 <div class="result-label">TRELLIS 2</div>
                 <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/windhouse-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/windhouse-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
             <div class="result-item">
-                <div class="result-label">Hunyuan3D</div>
+                <div class="result-label">HY3D V3.1</div>
                 <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="assets/sample.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/windhouse-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/windhouse-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 7: chair -->
+        <div class="results-row fade-in" data-row="6">
+            <div class="result-item">
+                <div class="result-label">Input</div>
+                <div class="result-input-img"><img src="compa/image/chair.png" alt="Input" /></div>
+            </div>
+            <div class="result-item">
+                <div class="result-label result-label-ours">Pixal3D</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/chair.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/chair.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">TRELLIS 2</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/chair-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/chair-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">HY3D V3.1</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/chair-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/chair-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
@@ -1739,7 +1770,10 @@
     </script>
 
     <!-- Split Viewer Logic (per-row independent) -->
-    <script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
         (function() {
             const rows = document.querySelectorAll('.results-row');
             const syncToggle = document.getElementById('syncSliderToggle');
@@ -1749,8 +1783,8 @@
                 const allTextured = [];
                 const allWireframe = [];
                 const allSliders = [];
+                const viewerData = []; // per-viewer normal state
 
-                // Defer loading for comparisons
                 splitViewers.forEach(sv => {
                     const t = sv.querySelector('.sv-textured');
                     const w = sv.querySelector('.sv-wireframe');
@@ -1760,48 +1794,151 @@
                     allTextured.push(t);
                     allWireframe.push(w);
                     allSliders.push(sv.querySelector('.sv-slider'));
+                    viewerData.push({ sv, t, w, tSrc, wSrc, normalCanvas: null, normalRenderer: null, normalScene3: null, normalCamera3: null, normalReady: false });
+                });
 
-                    // Add load button per viewer
-                    const loadBtn = document.createElement('button');
-                    loadBtn.className = 'sv-load-btn';
-                    loadBtn.textContent = 'Load 3D';
-                    sv.appendChild(loadBtn);
-                    loadBtn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        if (t.getAttribute('src')) return;
-                        loadBtn.textContent = 'Loading...';
-                        t.style.visibility = 'visible';
-                        w.style.visibility = 'visible';
-                        t.setAttribute('src', tSrc);
-                        w.setAttribute('src', wSrc);
-                        t.addEventListener('load', () => {
-                            loadBtn.textContent = '✓ Loaded';
-                            loadBtn.classList.add('loaded');
-                            setTimeout(() => {
-                                loadBtn.style.display = 'none';
-                                closeBtn.style.display = 'block';
-                            }, 1500);
+                // --- Row-level Load button (on the row itself) ---
+                const rowLoadBtn = document.createElement('button');
+                rowLoadBtn.className = 'sv-load-btn';
+                rowLoadBtn.textContent = 'Load 3D';
+                rowLoadBtn.style.position = 'absolute';
+                rowLoadBtn.style.top = '8px';
+                rowLoadBtn.style.right = '8px';
+                rowLoadBtn.style.zIndex = '20';
+                row.style.position = 'relative';
+                row.appendChild(rowLoadBtn);
+
+                const rowCloseBtn = document.createElement('button');
+                rowCloseBtn.className = 'sv-load-btn';
+                rowCloseBtn.textContent = '✕ Close';
+                rowCloseBtn.style.display = 'none';
+                rowCloseBtn.style.position = 'absolute';
+                rowCloseBtn.style.top = '8px';
+                rowCloseBtn.style.right = '8px';
+                rowCloseBtn.style.zIndex = '20';
+                rowCloseBtn.style.background = 'rgba(239, 68, 68, 0.8)';
+                rowCloseBtn.style.borderColor = 'rgba(239, 68, 68, 0.5)';
+                row.appendChild(rowCloseBtn);
+
+                let rowLoaded = false;
+
+                rowLoadBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (rowLoaded) return;
+                    rowLoaded = true;
+                    rowLoadBtn.textContent = 'Loading...';
+                    let loadCount = 0;
+                    const total = viewerData.filter(d => d.tSrc).length;
+                    viewerData.forEach(d => {
+                        if (!d.tSrc) return;
+                        d.t.style.visibility = 'visible';
+                        d.w.style.visibility = 'visible';
+                        d.t.setAttribute('src', d.tSrc);
+                        d.w.setAttribute('src', d.wSrc);
+                        d.t.addEventListener('load', () => {
+                            loadCount++;
+                            if (loadCount >= total) {
+                                rowLoadBtn.textContent = '✓ Loaded';
+                                rowLoadBtn.classList.add('loaded');
+                                setTimeout(() => {
+                                    rowLoadBtn.style.display = 'none';
+                                    rowCloseBtn.style.display = 'block';
+                                }, 1000);
+                            }
+                            // Pre-init normal
+                            initNormalForViewer(d);
                         }, { once: true });
                     });
+                });
 
-                    // Close button
-                    const closeBtn = document.createElement('button');
-                    closeBtn.className = 'sv-load-btn';
-                    closeBtn.textContent = '✕ Close';
-                    closeBtn.style.display = 'none';
-                    closeBtn.style.background = 'rgba(239, 68, 68, 0.8)';
-                    closeBtn.style.borderColor = 'rgba(239, 68, 68, 0.5)';
-                    sv.appendChild(closeBtn);
-                    closeBtn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        t.removeAttribute('src');
-                        w.removeAttribute('src');
-                        t.style.visibility = 'hidden';
-                        w.style.visibility = 'hidden';
-                        closeBtn.style.display = 'none';
-                        loadBtn.style.display = 'block';
-                        loadBtn.textContent = 'Load 3D';
-                        loadBtn.classList.remove('loaded');
+                rowCloseBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    viewerData.forEach(d => {
+                        d.t.removeAttribute('src');
+                        d.w.removeAttribute('src');
+                        d.t.style.visibility = 'hidden';
+                        d.w.style.visibility = 'hidden';
+                        // Clean up normal
+                        d.normalReady = false;
+                        if (d.normalCanvas) { d.normalCanvas.remove(); d.normalCanvas = null; }
+                        if (d.normalRenderer) { d.normalRenderer.dispose(); d.normalRenderer = null; }
+                        d.normalScene3 = null; d.normalCamera3 = null;
+                    });
+                    normalActive = false;
+                    if (rowNormalCheckbox) rowNormalCheckbox.checked = false;
+                    rowLoaded = false;
+                    rowCloseBtn.style.display = 'none';
+                    rowLoadBtn.style.display = 'block';
+                    rowLoadBtn.textContent = 'Load 3D';
+                    rowLoadBtn.classList.remove('loaded');
+                });
+
+                // --- Normal toggle on Pixal3D viewer (first split-viewer in row) ---
+                const pixal3dSv = splitViewers[0];
+                const rowNormalToggle = document.createElement('label');
+                rowNormalToggle.className = 'sv-normal-toggle';
+                rowNormalToggle.innerHTML = '<input type="checkbox"><span class="sv-normal-switch"></span><span class="sv-normal-text">Normal</span>';
+                if (pixal3dSv) pixal3dSv.appendChild(rowNormalToggle);
+                const rowNormalCheckbox = rowNormalToggle.querySelector('input');
+
+                // --- Camera reset button on Pixal3D viewer ---
+                const rowResetBtn = document.createElement('button');
+                rowResetBtn.className = 'sv-reset-btn';
+                rowResetBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>';
+                if (pixal3dSv) pixal3dSv.appendChild(rowResetBtn);
+                rowResetBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (defaultRadius) {
+                        theta = Math.PI; phi = Math.PI/2; radius = defaultRadius;
+                        isAutoRotating = false;
+                        lastInteractTime = Date.now();
+                    }
+                });
+
+                let normalActive = false;
+
+                async function initNormalForViewer(d) {
+                    if (d.normalCanvas) return;
+                    d.normalCanvas = document.createElement('canvas');
+                    d.normalCanvas.className = 'sv-normal-canvas';
+                    d.normalCanvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;z-index:3;display:none;clip-path:inset(0 50% 0 0);pointer-events:none;';
+                    d.sv.appendChild(d.normalCanvas);
+
+                    const rect = d.sv.getBoundingClientRect();
+                    d.normalRenderer = new THREE.WebGLRenderer({ canvas: d.normalCanvas, antialias: true, alpha: true });
+                    d.normalRenderer.setSize(rect.width, rect.height);
+                    d.normalRenderer.setPixelRatio(window.devicePixelRatio);
+                    d.normalRenderer.setClearColor(0x0d0d14, 1);
+
+                    d.normalScene3 = new THREE.Scene();
+                    d.normalCamera3 = new THREE.PerspectiveCamera(30, rect.width / rect.height, 0.01, 100);
+
+                    const glbSrc = d.wSrc || d.tSrc;
+                    if (!glbSrc) return;
+                    const loader = new GLTFLoader();
+                    try {
+                        const gltf = await loader.loadAsync(glbSrc);
+                        const model = gltf.scene;
+                        const normalMat = new THREE.MeshNormalMaterial();
+                        model.traverse(child => { if (child.isMesh) child.material = normalMat; });
+                        const box = new THREE.Box3().setFromObject(model);
+                        const center = box.getCenter(new THREE.Vector3());
+                        model.position.sub(center);
+                        d.normalScene3.add(model);
+                        d.normalReady = true;
+                    } catch(e) {}
+                }
+
+                rowNormalCheckbox.addEventListener('change', () => {
+                    normalActive = rowNormalCheckbox.checked;
+                    viewerData.forEach(d => {
+                        if (normalActive) {
+                            d.w.style.visibility = 'hidden';
+                            if (d.normalCanvas) d.normalCanvas.style.display = 'block';
+                        } else {
+                            d.w.style.visibility = 'visible';
+                            if (d.normalCanvas) d.normalCanvas.style.display = 'none';
+                        }
                     });
                 });
 
@@ -1817,6 +1954,8 @@
                     slider.style.left = pct + '%';
                     wireframe.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
                     textured.style.clipPath = `inset(0 0 0 ${pct}%)`;
+                    const nc = sv.querySelector('.sv-normal-canvas');
+                    if (nc) nc.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
                 }
 
                 function updateSliders(pct) {
@@ -1861,7 +2000,7 @@
 
                 splitViewers.forEach(sv => {
                     sv.addEventListener('pointerdown', (e) => {
-                        if (e.target.closest('.sv-slider') || e.target.closest('.sv-load-btn')) return;
+                        if (e.target.closest('.sv-slider') || e.target.closest('.sv-load-btn') || e.target.closest('.sv-normal-toggle') || e.target.closest('.sv-reset-btn')) return;
                         orbiting = true;
                         lastX = e.clientX;
                         lastY = e.clientY;
@@ -1892,6 +2031,29 @@
                     }, { passive: false });
                 });
 
+                function renderNormals() {
+                    if (!normalActive) return;
+                    viewerData.forEach(d => {
+                        if (!d.normalReady || !d.normalRenderer || !d.normalCamera3) return;
+                        // Resize check
+                        const rect = d.sv.getBoundingClientRect();
+                        const w = Math.round(rect.width), h = Math.round(rect.height);
+                        if (d.normalRenderer.domElement.width !== w * window.devicePixelRatio || d.normalRenderer.domElement.height !== h * window.devicePixelRatio) {
+                            d.normalRenderer.setSize(w, h);
+                            d.normalCamera3.aspect = w / h;
+                            d.normalCamera3.updateProjectionMatrix();
+                        }
+                        const x = radius * Math.sin(phi) * Math.sin(theta);
+                        const y = radius * Math.cos(phi);
+                        const z = radius * Math.sin(phi) * Math.cos(theta);
+                        d.normalCamera3.position.set(x, y, z);
+                        d.normalCamera3.lookAt(0, 0, 0);
+                        d.normalCamera3.fov = fov;
+                        d.normalCamera3.updateProjectionMatrix();
+                        d.normalRenderer.render(d.normalScene3, d.normalCamera3);
+                    });
+                }
+
                 function renderLoop() {
                     if (!isAutoRotating && !orbiting && Date.now() - lastInteractTime > RESUME_DELAY) {
                         isAutoRotating = true;
@@ -1903,20 +2065,23 @@
                     const fovStr = fov + 'deg';
                     allTextured.forEach(v => { v.cameraOrbit = orbitStr; v.fieldOfView = fovStr; });
                     allWireframe.forEach(v => { v.cameraOrbit = orbitStr; v.fieldOfView = fovStr; });
+                    renderNormals();
                     requestAnimationFrame(renderLoop);
                 }
 
                 let initialized = false;
-                allTextured[0].addEventListener('load', () => {
-                    if (initialized) return;
-                    initialized = true;
-                    const orbit = allTextured[0].getCameraOrbit();
-                    theta = orbit.theta;
-                    phi = orbit.phi;
-                    radius = orbit.radius;
-                    defaultRadius = radius;
-                    fov = allTextured[0].getFieldOfView();
-                    requestAnimationFrame(renderLoop);
+                allTextured.forEach(v => {
+                    v.addEventListener('load', () => {
+                        if (initialized) return;
+                        initialized = true;
+                        const orbit = v.getCameraOrbit();
+                        theta = orbit.theta;
+                        phi = orbit.phi;
+                        radius = orbit.radius;
+                        defaultRadius = radius;
+                        fov = v.getFieldOfView();
+                        requestAnimationFrame(renderLoop);
+                    });
                 });
 
                 allWireframe.forEach(v => {
@@ -2041,6 +2206,20 @@
                     window._openExpandModal(item);
                 });
 
+                // Add camera reset button
+                const resetBtn = document.createElement('button');
+                resetBtn.className = 'sv-reset-btn';
+                resetBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>';
+                sv.appendChild(resetBtn);
+                resetBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (defaultRadius) {
+                        theta = Math.PI; phi = Math.PI/2; radius = defaultRadius;
+                        isAutoRotating = false;
+                        lastInteractTime = Date.now();
+                    }
+                });
+
                 // Slider
                 let dragging = false;
                 function updateSplit(pct) {
@@ -2072,7 +2251,7 @@
                 const ROTATE_SPEED = 0.008, ZOOM_SPEED = 0.001, AUTO_SPEED = 0.005, RESUME_DELAY = 2000;
 
                 sv.addEventListener('pointerdown', (e) => {
-                    if (e.target.closest('.sv-slider') || e.target.closest('.sv-normal-toggle') || e.target.closest('.sv-load-btn') || e.target.closest('.sv-expand-btn')) return;
+                    if (e.target.closest('.sv-slider') || e.target.closest('.sv-normal-toggle') || e.target.closest('.sv-load-btn') || e.target.closest('.sv-expand-btn') || e.target.closest('.sv-reset-btn')) return;
                     orbiting = true; lastX = e.clientX; lastY = e.clientY;
                     isAutoRotating = false; lastInteractTime = Date.now();
                     sv.setPointerCapture(e.pointerId); e.preventDefault();
