@@ -1497,8 +1497,11 @@
     <section id="comparisons">
         <div class="fade-in">
             <div class="section-label">Comparisons</div>
-            <p class="section-desc">
+            <p class="section-desc" style="margin-bottom: 0.5rem;">
                 Click "Load 3D" to load models. Each row shares synchronized rotation and slider. Drag to rotate, scroll to zoom.
+            </p>
+            <p class="section-desc" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0;">
+                * Meshes of TRELLIS 2 and HY3D V3.1 have been manually rotated and scaled to align with the corresponding viewpoint for fair comparison.
             </p>
             <div class="sync-toggle">
                 <label class="toggle-label">
@@ -1605,40 +1608,8 @@
             </div>
         </div>
 
-        <!-- Row 5: well -->
+        <!-- Row 5: windhouse -->
         <div class="results-row fade-in" data-row="4">
-            <div class="result-item">
-                <div class="result-label">Input</div>
-                <div class="result-input-img"><img src="compa/image/well.jpg" alt="Input" /></div>
-            </div>
-            <div class="result-item">
-                <div class="result-label result-label-ours">Pixal3D</div>
-                <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/well.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/well.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
-                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
-                </div>
-            </div>
-            <div class="result-item">
-                <div class="result-label">TRELLIS 2</div>
-                <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/well-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/well-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
-                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
-                </div>
-            </div>
-            <div class="result-item">
-                <div class="result-label">HY3D V3.1</div>
-                <div class="split-viewer">
-                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/well.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
-                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/well.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
-                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Row 6: windhouse -->
-        <div class="results-row fade-in" data-row="5">
             <div class="result-item">
                 <div class="result-label">Input</div>
                 <div class="result-input-img"><img src="compa/image/windhouse.png" alt="Input" /></div>
@@ -1669,8 +1640,8 @@
             </div>
         </div>
 
-        <!-- Row 7: chair -->
-        <div class="results-row fade-in" data-row="6">
+        <!-- Row 6: chair -->
+        <div class="results-row fade-in" data-row="5">
             <div class="result-item">
                 <div class="result-label">Input</div>
                 <div class="result-input-img"><img src="compa/image/chair.png" alt="Input" /></div>
@@ -1696,6 +1667,70 @@
                 <div class="split-viewer">
                     <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/chair-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
                     <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/chair-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 7: city -->
+        <div class="results-row fade-in" data-row="6">
+            <div class="result-item">
+                <div class="result-label">Input</div>
+                <div class="result-input-img"><img src="compa/image/city.jpg" alt="Input" /></div>
+            </div>
+            <div class="result-item">
+                <div class="result-label result-label-ours">Pixal3D</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/city.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/city.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">TRELLIS 2</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/city-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/city-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">HY3D V3.1</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/city-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/city-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 8: picnic -->
+        <div class="results-row fade-in" data-row="7">
+            <div class="result-item">
+                <div class="result-label">Input</div>
+                <div class="result-input-img"><img src="compa/image/picnic.jpg" alt="Input" /></div>
+            </div>
+            <div class="result-item">
+                <div class="result-label result-label-ours">Pixal3D</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/picnic.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/pixal3d/picnic.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">TRELLIS 2</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/picnic-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/trellis2/picnic-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
+                    <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">HY3D V3.1</div>
+                <div class="split-viewer">
+                    <model-viewer class="sv-textured" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/picnic-new.glb" shadow-intensity="1" environment-image="neutral" exposure="1.0" interaction-prompt="none" style="clip-path:inset(0 0 0 50%);"></model-viewer>
+                    <model-viewer class="sv-wireframe" camera-orbit="180deg 90deg auto" data-src="compa/hy3d/picnic-new.glb" shadow-intensity="0" environment-image="neutral" exposure="0.8" interaction-prompt="none" style="clip-path:inset(0 50% 0 0);pointer-events:none;"></model-viewer>
                     <div class="sv-slider"><div class="sv-line"></div><div class="sv-handle">⇔</div></div>
                 </div>
             </div>
