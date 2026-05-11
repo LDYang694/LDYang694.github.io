@@ -303,6 +303,42 @@
             text-align: center;
         }
 
+        .video-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .video-progress {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            z-index: 2;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .video-progress-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .video-progress-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.2s;
+        }
+
         .video-wrapper video {
             width: 100%;
             max-width: 1200px;
@@ -1291,7 +1327,7 @@
                     <span style="font-size:1.1rem;">📄</span>
                     Arxiv
                 </a>
-                <a href="https://huggingface.co/spaces/TencentARC/Pixal3D-T" target="_blank" class="btn btn-secondary">
+                <a href="https://huggingface.co/spaces/TencentARC/Pixal3D" target="_blank" class="btn btn-secondary">
                     <span style="font-size:1.1rem;">🤗</span>
                     Demo
                 </a>
@@ -1317,10 +1353,16 @@
             <div class="section-label">Video</div>
         </div>
         <div class="video-wrapper fade-in">
-            <video controls preload="metadata">
-                <source src="assets/video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <div class="video-container">
+                <div class="video-progress" id="videoProgress">
+                    <div>Loading video... <span id="videoPercent">0%</span></div>
+                    <div class="video-progress-bar"><div class="video-progress-fill" id="videoFill"></div></div>
+                </div>
+                <video controls preload="metadata" id="mainVideo">
+                    <source src="assets/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
     </section>
 
@@ -1775,6 +1817,42 @@
     <footer>
         <p>&copy; 2026 Pixal3D.</p>
     </footer>
+
+    <!-- Video Progress -->
+    <script>
+    (function() {
+        const video = document.getElementById('mainVideo');
+        const progress = document.getElementById('videoProgress');
+        const percent = document.getElementById('videoPercent');
+        const fill = document.getElementById('videoFill');
+        if (!video || !progress) return;
+
+        function updateProgress() {
+            const buf = video.buffered;
+            if (buf.length > 0 && video.duration) {
+                const loaded = buf.end(buf.length - 1) / video.duration * 100;
+                percent.textContent = Math.round(loaded) + '%';
+                fill.style.width = loaded + '%';
+                if (loaded >= 99) {
+                    progress.style.opacity = '0';
+                    setTimeout(() => progress.style.display = 'none', 300);
+                }
+            }
+        }
+
+        video.addEventListener('progress', updateProgress);
+        video.addEventListener('canplaythrough', () => {
+            progress.style.opacity = '0';
+            setTimeout(() => progress.style.display = 'none', 300);
+        });
+
+        // Also hide when user starts playing
+        video.addEventListener('playing', () => {
+            progress.style.opacity = '0';
+            setTimeout(() => progress.style.display = 'none', 300);
+        });
+    })();
+    </script>
 
     <!-- Scroll Animation -->
     <script>
