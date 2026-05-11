@@ -303,42 +303,6 @@
             text-align: center;
         }
 
-        .video-container {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-            max-width: 1200px;
-        }
-
-        .video-progress {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            z-index: 2;
-            pointer-events: none;
-            transition: opacity 0.3s;
-        }
-
-        .video-progress-bar {
-            width: 200px;
-            height: 4px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 2px;
-            margin-top: 8px;
-            overflow: hidden;
-        }
-
-        .video-progress-fill {
-            height: 100%;
-            background: var(--accent);
-            border-radius: 2px;
-            width: 0%;
-            transition: width 0.2s;
-        }
-
         .video-wrapper video {
             width: 100%;
             max-width: 1200px;
@@ -1353,16 +1317,10 @@
             <div class="section-label">Video</div>
         </div>
         <div class="video-wrapper fade-in">
-            <div class="video-container">
-                <div class="video-progress" id="videoProgress">
-                    <div>Loading video... <span id="videoPercent">0%</span></div>
-                    <div class="video-progress-bar"><div class="video-progress-fill" id="videoFill"></div></div>
-                </div>
-                <video controls preload="metadata" id="mainVideo">
-                    <source src="assets/video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+            <video controls preload="metadata">
+                <source src="https://github.com/LDYang694/LDYang694.github.io/releases/download/Pixal3D_Assets/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </section>
 
@@ -1817,55 +1775,6 @@
     <footer>
         <p>&copy; 2026 Pixal3D.</p>
     </footer>
-
-    <!-- Video Progress -->
-    <script>
-    (function() {
-        const video = document.getElementById('mainVideo');
-        const progress = document.getElementById('videoProgress');
-        const percent = document.getElementById('videoPercent');
-        const fill = document.getElementById('videoFill');
-        if (!video || !progress) return;
-
-        // Hide progress initially, show only when user starts playing
-        progress.style.display = 'none';
-
-        let pollTimer = null;
-
-        function updateProgress() {
-            const buf = video.buffered;
-            if (buf.length > 0 && video.duration) {
-                const loaded = buf.end(buf.length - 1) / video.duration * 100;
-                percent.textContent = Math.round(loaded) + '%';
-                fill.style.width = loaded + '%';
-                if (loaded >= 99) {
-                    hideProgress();
-                }
-            }
-        }
-
-        function hideProgress() {
-            progress.style.opacity = '0';
-            setTimeout(() => progress.style.display = 'none', 300);
-            if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
-        }
-
-        video.addEventListener('play', () => {
-            // Show progress when buffering is not complete
-            const buf = video.buffered;
-            const fullyLoaded = buf.length > 0 && video.duration && buf.end(buf.length - 1) / video.duration >= 0.99;
-            if (!fullyLoaded) {
-                progress.style.display = '';
-                progress.style.opacity = '1';
-                updateProgress();
-                if (!pollTimer) pollTimer = setInterval(updateProgress, 500);
-            }
-        });
-
-        video.addEventListener('canplaythrough', hideProgress);
-        video.addEventListener('ended', hideProgress);
-    })();
-    </script>
 
     <!-- Scroll Animation -->
     <script>
